@@ -13,7 +13,8 @@ namespace TodoAPI.Controllers
         {
 
             todoItems.Add(new TodoItem
-            { Id = 1,
+            { 
+                Id = 1,
                 Name = "Item1",
                 IsComplete = true
             });
@@ -78,10 +79,12 @@ namespace TodoAPI.Controllers
         public ActionResult Delete(int id)
         {
             var item = todoItems.Find(x => x.Id == id);
+
             if (item == null)
             {
                 return NotFound();
             }
+
             todoItems.Remove(item);
             return Ok(todoItems);
         }   
